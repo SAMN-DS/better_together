@@ -24,7 +24,7 @@ def predict_class():
     sit_ups_counts = request.args.get('sit_ups_counts')
     broad_jump_cm = request.args.get('broad_jump_cm')
 
-    d = {'is_male': [is_male], 'height_cm': [height_cm], 'weight_kg': [weight_kg], 'age': [age],
+    d = {'age': [age],'is_male': [is_male], 'height_cm': [height_cm], 'weight_kg': [weight_kg],
          'body_fat': [body_fat], 'sit_ups_counts': [sit_ups_counts], 'broad_jump_cm': [broad_jump_cm]}
     X = pd.DataFrame(d)
     y = clf.predict(X)

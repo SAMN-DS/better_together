@@ -20,12 +20,12 @@ def predict_class():
     is_male = request.args.get('is_male')
     height_cm = request.args.get('height_cm')
     weight_kg = request.args.get('weight_kg')
-    body_fat = request.args.get('body_fat')  ## name reformating
+    # body_fat = request.args.get('body_fat')  ## name reformating
     sit_ups_counts = request.args.get('sit_ups_counts')
-    broad_jump_cm = request.args.get('broad_jump_cm')
+    # broad_jump_cm = request.args.get('broad_jump_cm')
 
-    d = {'age': [age],'is_male': [is_male], 'height_cm': [height_cm], 'weight_kg': [weight_kg],
-         'body_fat': [body_fat], 'sit_ups_counts': [sit_ups_counts], 'broad_jump_cm': [broad_jump_cm]}
+    d = {'age': [age], 'is_male': [is_male], 'height_cm': [height_cm], 'weight_kg': [weight_kg],
+         'sit_ups_counts': [sit_ups_counts]}
     X = pd.DataFrame(d)
     y = clf.predict(X)
 
@@ -39,7 +39,7 @@ def read_model(filename):
 
 
 def main():
-    app.run()
+    app.run(host='0.0.0.0', port=8080)
 
 
 if __name__ == '__main__':
